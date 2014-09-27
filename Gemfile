@@ -31,7 +31,7 @@ group :test, :development do
   gem 'pry'
   gem 'byebug'
   #gem 'rspec'
-  gem 'rspec-rails'
+  gem 'rspec-rails',"~> 3.0.1"
   gem "factory_girl_rails"
 end
 
