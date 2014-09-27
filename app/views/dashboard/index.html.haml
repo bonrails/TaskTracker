@@ -1,2 +1,18 @@
 %h1
   Task Board
+%table
+  %tr
+    %td
+      %h2
+        Task Name
+    %td
+      %h2
+        Assigned User
+  -@tasks.each do |task|
+    %tr
+      %td
+        = task.name
+      %td
+        = task.user.name if task.user.present?
+
+

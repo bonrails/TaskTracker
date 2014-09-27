@@ -3,9 +3,10 @@
 %p
   %b Name:
   = @task.name
-%p
-  %b User:
-  = @task.user_id
+-if @task.user.present?
+  %p
+    %b Assigned user:
+    = @task.user.name
 
 = link_to 'Edit', edit_task_path(@task)
 \|
