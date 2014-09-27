@@ -1,17 +1,32 @@
-%h1
-  Task Board
-%table{'ng-controller' => 'dashBoardController as controller'}
-  %tr
-    %td
-      %h2
-        Task Name
-    %td
-      %h2
-        Assigned User
-  -@tasks.each do |task|
+
+.container{'ng-controller' => 'dashBoardController as controller'}
+  %h1
+    Task Board
+  %table
     %tr
       %td
-        = task.name
+        %h2
+          Task Name
       %td
-        = task.user.name if task.user.present?
+        %h2
+          Assigned User
+    -@tasks.each_with_index do |task,index|
+      %tr{'ng-init' =>"task_#{index} = #{task.to_json}"}
+        %td
+          = task.name
+        %td
+          = task.user.name if task.user.present?
+        %td
+          %button{'ng-click' => "controller.editAssignment(task_#{index})"} Edit
 
+  %form
+    %h2
+      Task Name
+    =text_field_tag(:name,'','ng-model' => 'taskName');
+    %h2
+      User
+    %select#user_id{'ng-model' => 'userModel', 'ng-init' =>"users=#{@users.to_json}"}
+      %option{value: ""}
+        Select One
+      %option{'ng-repeat' => "user in users", :value=>"{{user.id}}", 'ng-selected'=>"{{user.id == userModel}}"}
+        {{user.name}}
