@@ -1,6 +1,6 @@
 %h1
   Task Board
-%table
+%table{'ng-controller' => 'dashBoardController as controller'}
   %tr
     %td
       %h2
@@ -14,5 +14,4 @@
         = task.name
       %td
         = task.user.name if task.user.present?
-
 

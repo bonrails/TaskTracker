@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='taskApp'>
 <head>
   <title>TaskTracker</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -8,6 +8,7 @@
 </head>
 <body>
   <p>
+    <%= link_to 'Dashboard', root_path %>
     <%= link_to 'Add new task', new_task_path %>
     <%= link_to 'Add new user', new_user_path %>
     <%= link_to 'User Management', users_path %>
