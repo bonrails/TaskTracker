@@ -6,5 +6,9 @@ angular.module('taskApp.controllers.dashBoardController', [])
       $scope.taskName = task.name;
       $scope.userModel = task.user_id;
     };
+    $scope.submit = function() {
+       $scope.changedUser  = this.userModel
+      $scope.taskName= this.taskName
+    }
   }]
   );

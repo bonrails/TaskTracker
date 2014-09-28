@@ -19,7 +19,8 @@
         %td
           %button{'ng-click' => "controller.editAssignment(task_#{index})"} Edit
 
-  %form
+
+  %form{ "ng-submit" => "submit()"}
     %h2
       Task Name
     =text_field_tag(:name,'','ng-model' => 'taskName');
@@ -30,3 +31,5 @@
         Select One
       %option{'ng-repeat' => "user in users", :value=>"{{user.id}}", 'ng-selected'=>"{{user.id == userModel}}"}
         {{user.name}}
+    %input#submit{:type => "submit", :value => "Submit"}
+
