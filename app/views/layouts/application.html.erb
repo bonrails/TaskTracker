@@ -6,15 +6,18 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <p>
-    <%= link_to 'Dashboard', root_path %>
-    <%= link_to 'Add new task', new_task_path %>
-    <%= link_to 'Add new user', new_user_path %>
-    <%= link_to 'User Management', users_path %>
-    <%= link_to 'Tasks Management', tasks_path %>
-
-  </p>
+<body class='container '>
+  <div class="panel panel-default well well-lg">
+    <h3>
+      <ul class='nav nav-pills'>
+        <li class='active'><%= link_to 'Dashboard', root_path %></li>
+        <li><%= link_to 'Add new task', new_task_path %></li>
+        <li><%= link_to 'Add new user', new_user_path %></li>
+        <li><%= link_to 'User Management', users_path %></li>
+        <li><%= link_to 'Tasks Management', tasks_path %></li>
+      </ul>
+    </h3>
+  </div>
 <%= yield %>
 
 </body>

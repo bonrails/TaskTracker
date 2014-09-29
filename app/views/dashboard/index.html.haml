@@ -2,9 +2,9 @@
 .container{'ng-controller' => 'dashBoardController as controller'}
   %h1
     Task Board
-  %table
-    %tr
-      %td
+  %table.table.table-striped.table-hover
+    %thead
+      %th
         %h2
           Task Name
       %td
@@ -15,23 +15,26 @@
         %td
           ="{{task_#{task.id}.name}}"
         %td
-          -#.user{'ng-if' => "task_#{task.id}.user"}
           ="{{task_#{task.id}.user.name}}"
         %td
-          %button{'ng-click' => "controller.editAssignment(task_#{task.id})"} Edit
+          %button.btn.btn-info{'ng-click' => "controller.editAssignment(task_#{task.id})"} Edit
 
 
-  %form{ "ng-submit" => "submit()", 'ng-show' => 'showTaskEditForm'}
-    %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token, 'ng-init' =>"authToken='#{form_authenticity_token}'" }
-    %h2
-      Task Name
-    =text_field_tag(:name,'','ng-model' => 'taskName');
-    %h2
-      User
-    %select#user_id{'ng-model' => 'userModel', 'ng-init' =>"users=#{@users.to_json}"}
-      %option{value: ""}
-        Select One
-      %option{'ng-repeat' => "user in users", :value=>"{{user.id}}", 'ng-selected'=>"{{user.id == userModel}}"}
-        {{user.name}}
-    %input#submit{:type => "submit", :value => "Submit"}
+
+  %form.well{ "ng-submit" => "submit()", 'ng-show' => 'showTaskEditForm'}
+    .row
+      .col-sm-5
+        %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token, 'ng-init' =>"authToken='#{form_authenticity_token}'" }
+        %h2
+          Task Name
+        =text_field_tag(:name,'','ng-model' => 'taskName');
+      .col-sm-5
+        %h2
+          User
+        %select#user_id{'ng-model' => 'userModel', 'ng-init' =>"users=#{@users.to_json}"}
+          %option{value: ""}
+            Select One
+          %option{'ng-repeat' => "user in users", :value=>"{{user.id}}", 'ng-selected'=>"{{user.id == userModel}}"}
+            {{user.name}}
+        %input.btn.btn-primary#submit{:type => "submit", :value => "Submit"}
 
