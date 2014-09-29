@@ -3,6 +3,7 @@ angular.module('taskApp.controllers.dashBoardController', [])
     var controller = this;
     $scope.taskName = "";
     this.editAssignment = function(task){
+      $scope.showTaskEditForm = true;
       $scope.taskName = task.name;
       $scope.userModel = task.user_id;
       $scope.task_id = task.id
@@ -15,9 +16,10 @@ angular.module('taskApp.controllers.dashBoardController', [])
       $http.put('/tasks/'+ $scope.task_id+'.json',submitData).
         success(function (data, status, headers, config) {
           controller.onSuccessTaskData(data);
+          $scope.showTaskEditForm = false;
         }).
      error(function (data, status, headers, config) {
-
+          $scope.showTaskEditForm = true;
        });
     }
     this.onSuccessTaskData = function(data){

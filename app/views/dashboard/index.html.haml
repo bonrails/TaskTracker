@@ -19,17 +19,9 @@
           ="{{task_#{task.id}.user.name}}"
         %td
           %button{'ng-click' => "controller.editAssignment(task_#{task.id})"} Edit
-  -#
-  -#-if {{currentMessage}}
-  -#  .alert{"ng-show" => "flash.getMessage()"}
-  -#    %b
-  -#      Alert!
-  -#      {{currentMessage}}
-  -#-else
-  -#  ''
 
 
-  %form{ "ng-submit" => "submit()"}
+  %form{ "ng-submit" => "submit()", 'ng-show' => 'showTaskEditForm'}
     %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token, 'ng-init' =>"authToken='#{form_authenticity_token}'" }
     %h2
       Task Name
