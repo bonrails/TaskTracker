@@ -11,16 +11,26 @@
         %h2
           Assigned User
     -@tasks.each_with_index do |task,index|
-      %tr{'ng-init' =>"task_#{index} = #{task.to_json}"}
+      %tr{'ng-init' =>"task_#{task.id} = #{task.to_json(include: :user)}"}
         %td
-          = task.name
+          ="{{task_#{task.id}.name}}"
         %td
-          = task.user.name if task.user.present?
+          -#.user{'ng-if' => "task_#{task.id}.user"}
+          ="{{task_#{task.id}.user.name}}"
         %td
-          %button{'ng-click' => "controller.editAssignment(task_#{index})"} Edit
+          %button{'ng-click' => "controller.editAssignment(task_#{task.id})"} Edit
+  -#
+  -#-if {{currentMessage}}
+  -#  .alert{"ng-show" => "flash.getMessage()"}
+  -#    %b
+  -#      Alert!
+  -#      {{currentMessage}}
+  -#-else
+  -#  ''
 
 
   %form{ "ng-submit" => "submit()"}
+    %input{name: "authenticity_token", type: "hidden", value: form_authenticity_token, 'ng-init' =>"authToken='#{form_authenticity_token}'" }
     %h2
       Task Name
     =text_field_tag(:name,'','ng-model' => 'taskName');

@@ -19,5 +19,5 @@
 
 angular.module('taskApp',[
   'taskApp.controllers',
-  'ui.bootstrap'
+  'ui.bootstrap',
 ]);
