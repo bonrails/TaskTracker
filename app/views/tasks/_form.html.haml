@@ -1,23 +1,20 @@
-= form_for @task do |f|
-  - if @task.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-      %ul
-        - @task.errors.full_messages.each do |msg|
-          %li= msg
+.well
+  = form_for @task ,:html => {:class => "form-horizontal"}do |f|
+    - if @task.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+        %ul
+          - @task.errors.full_messages.each do |msg|
+            %li= msg
+    .form-group
+      = f.label :name ,:class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :name  ,:class => 'form-control'
+    .form-group
+      = f.label :description ,:class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_area :description ,:class => 'form-control'
 
-  .field.form-group
-    .col-sm-2.control-label
-      = f.label :name
-    .col-sm-10
-      = f.text_field :name
-  .field.form-group
-    .col-sm-2.control-label
-      = f.label :description
-    .col-sm-10
-      = f.text_field :description
-  -#.field
-  -#  = f.label :user_id
-  -#  = f.select :user_id, @users.collect {|x| [x.name, x.id]}
-  .actions
-    = f.submit 'Save'
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = f.submit 'Save' ,:class => 'btn btn-default btn btn-primary'
