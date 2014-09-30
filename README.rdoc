@@ -7,11 +7,11 @@
   <tt>rails '4.1.6'</tt>
 
 * Database creation
-   <tt>rake db:migrate </tt>
-   <tt>rake db:seed </tt>
+   rake db:migrate
+   rake db:seed
 
 * How to run the test suite
-   <tt>rspec spec</tt>
+   rspec spec
 
 * Additional details
  Angular js & angular ui
