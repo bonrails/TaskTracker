@@ -20,4 +20,8 @@
 angular.module('taskApp',[
   'taskApp.controllers',
   'ui.bootstrap',
-]);
+]).run(function($rootScope, $templateCache) {
+    $rootScope.$on('$viewContentLoaded', function() {
+      $templateCache.removeAll();
+    });
+  });
