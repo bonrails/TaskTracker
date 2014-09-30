@@ -1,28 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+  <tt>ruby 2.1.2p95</tt>
 
-* System dependencies
-
-* Configuration
+* Rails version
+  <tt>rails '4.1.6'</tt>
 
 * Database creation
-
-* Database initialization
+   <tt>rake db:migrate </tt>
+   <tt>rake db:seed </tt>
 
 * How to run the test suite
+   <tt>rspec spec</tt>
 
-* Services (job queues, cache servers, search engines, etc.)
+* Additional details
+ Angular js & angular ui
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Weather task
+  <tt> ruby lib/weather.rb 94085 </tt>
