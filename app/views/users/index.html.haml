@@ -10,7 +10,7 @@
   .col-sm-1
 - @users.each do |user|
   .row.well
-    .col-sm-3= link_to "#{user.name}"
+    .col-sm-3= link_to "#{user.name}" ,user
     .col-sm-1.glyphicon.glyphicon-search= link_to 'Show', user
     .col-sm-1.glyphicon.glyphicon-pencil= link_to 'Edit', edit_user_path(user)
     .col-sm-1.glyphicon.glyphicon-minus-sign= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
