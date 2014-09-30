@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'rails-assets-angular'
 gem 'rails-assets-angular-bootstrap'
+gem 'bootstrap-sass'
 group :test, :development do
   gem 'pry'
   gem 'byebug'

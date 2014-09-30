@@ -1,0 +1,22 @@
+!!!
+%html{"ng-app" => "taskApp"}
+  %head
+    %title TaskTracker
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body.container
+    .panel.panel-default.well.well-lg
+      %h3
+        %ul.nav.nav-pills
+          %li{:class => (params[:controller] == 'dashboard' ? 'active' : '')}
+            = link_to 'Dashboard', root_path
+          %li{:class => (params[:controller] == 'tasks' && params[:action] == 'new' ? 'active' : '')}
+            = link_to 'Add new task', new_task_path
+          %li{:class => (params[:controller] == 'users'  && params[:action] == 'new'  ? 'active' : '')}
+            = link_to 'Add new user', new_user_path
+          %li{:class => (params[:controller] == 'users'  && params[:action] == 'index' ? 'active' : '')}
+            = link_to 'Users', users_path
+          %li{:class => (params[:controller] == 'tasks'  && params[:action] == 'index' ? 'active' : '')}
+            = link_to 'Tasks', tasks_path
+    = yield
