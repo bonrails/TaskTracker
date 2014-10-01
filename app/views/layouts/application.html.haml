@@ -8,15 +8,20 @@
   %body.container
     .panel.panel-default.well.well-lg
       %h3
-        %ul.nav.nav-pills
+        %ul.nav.nav-pills{'ng-controller' => 'MainController as controller'}
           %li{:class => (params[:controller] == 'dashboard' ? 'active' : '')}
-            = link_to 'Dashboard', root_path
+            %a{ 'ng-click'=>"goto('#{root_path}')" ,'href' => '#' }
+              Dashboard
           %li{:class => (params[:controller] == 'tasks' && params[:action] == 'new' ? 'active' : '')}
-            = link_to 'Add new task', new_task_path
+            %a{ 'ng-click'=>"goto('#{new_task_path}')" ,'href' => '#'   }
+              Add new task
           %li{:class => (params[:controller] == 'users'  && params[:action] == 'new'  ? 'active' : '')}
-            = link_to 'Add new user', new_user_path
+            %a{ 'ng-click'=>"goto('#{new_user_path}')" ,'href' => '#'   }
+              Add new user
           %li{:class => (params[:controller] == 'users'  && params[:action] == 'index' ? 'active' : '')}
-            = link_to 'Users', users_path
+            %a{ 'ng-click'=>"goto('#{users_path}')"  ,'href' => '#'  }
+              Users
           %li{:class => (params[:controller] == 'tasks'  && params[:action] == 'index' ? 'active' : '')}
-            = link_to 'Tasks', tasks_path
+            %a{ 'ng-click'=>"goto('#{tasks_path}')"  ,'href' => '#' }
+              Tasks
     = yield

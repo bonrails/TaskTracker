@@ -24,4 +24,12 @@ angular.module('taskApp',[
     $rootScope.$on('$viewContentLoaded', function() {
       $templateCache.removeAll();
     });
-  });
+  }).config(
+    ['$locationProvider',
+      function ($locationProvider) {
+
+        //commenting out this line (switching to hashbang mode) breaks the app
+        //-- unless # is added to the templates
+        $locationProvider.html5Mode(true);
+      }
+    ])
