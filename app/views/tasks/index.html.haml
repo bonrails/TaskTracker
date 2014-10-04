@@ -16,7 +16,7 @@
 - @tasks.each do |task|
   .row.well
     .col-sm-3= task.name
-    .col-sm-3= task.user.name
+    .col-sm-3= (task.user.present? ? task.user.name : '')
     .col-sm-1.glyphicon.glyphicon-search= link_to 'Show', task
     .col-sm-1.glyphicon.glyphicon-pencil= link_to 'Edit', edit_task_path(task)
     .col-sm-1.glyphicon.glyphicon-minus-sign= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
